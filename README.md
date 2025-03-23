@@ -1,1 +1,1 @@
-# job-application-simulator
+# Job Application Simulator
