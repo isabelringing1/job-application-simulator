@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import CaptchaPage from "../CaptchaPage";
 
-import captchaImg from "/images/captcha.png";
-import checkmarkImg from "/images/checkmark.png";
+import captchaImg from "/public/images/captcha.png";
+import checkmarkImg from "/public/images/checkmark.png";
 
 import Markdown from "react-markdown";
 

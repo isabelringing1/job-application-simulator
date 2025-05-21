@@ -171,7 +171,7 @@ const ShouldShowQuestion = (question, idToQuestionsDict, pageDict) => {
 	}
 	var prerequisiteQuestion =
 		idToQuestionsDict[question.prerequisite_question];
-	if (!prerequisiteQuestion) {
+	if (!prerequisiteQuestion || !prerequisiteQuestion.id) {
 		return true;
 	}
 	var prerequisiteAnswer = pageDict[prerequisiteQuestion.id];
