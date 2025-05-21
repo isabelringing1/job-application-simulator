@@ -1,0 +1,438 @@
+[
+	{
+		"title": "Job Application Simulator",
+		"id": "title",
+		"continue_override": "I want a job"
+	},
+	{
+		"title": "Associate Engineer I",
+		"id": "about-role",
+		"show_required": false,
+		"texts": [
+			"**About us**",
+			"Our mission is to create the world’s most innovative, dependable, and ethical software.",
+			"***",
+			"**About the role**",
+			"We’re looking for applications who:",
+			"- Have a B.S. in Computer Science or related field",
+			"- 3+ years of full stack development experience",
+			"- An eagerness to thrive in a fast-paced environment",
+			"If that sounds like you, please apply!"
+		],
+		"continue_override": "Apply"
+	},
+	{
+		"title": "Verification",
+		"id": "captcha-1",
+		"show_required": true,
+		"questions": [
+			{
+				"id": "captcha-1-question-1",
+				"type": "captcha",
+				"text": "Please verify that you are human to continue.",
+				"button_text": "I'm not a robot",
+				"pages": [
+					{
+						"prompt_text_before": "Select all squares with",
+						"prompt_text": "traffic cones",
+						"prompt_text_after": "Click verify once there are none left.",
+						"image_id": "cone",
+						"dimension": 3,
+						"answers": [
+							[1, 0],
+							[2, 0],
+							[0, 1],
+							[0, 2]
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Basic Information",
+		"id": "name",
+		"show_required": true,
+		"questions": [
+			{
+				"id": "name-question",
+				"type": "input",
+				"text": "Name",
+				"checks": ["text-only"]
+			}
+		]
+	},
+	{
+		"title": "Basic Information",
+		"id": "email-phone",
+		"show_required": true,
+		"questions": [
+			{
+				"id": "email-question",
+				"type": "input",
+				"text": "Email",
+				"checks": ["email"]
+			},
+			{
+				"id": "phone-question",
+				"type": "input",
+				"text": "Phone",
+				"checks": ["phone"]
+			}
+		]
+	},
+	{
+		"title": "Voluntary Self-Identification",
+		"id": "self-id",
+		"show_required": true,
+		"texts": [
+			"We'd like to invite you to share more about yourself. This information will not impact on your application or the hiring process."
+		],
+		"questions": [
+			{
+				"id": "gender-question",
+				"no_error": true,
+				"type": "dropdown",
+				"text": "Please indicate your gender.",
+				"options": ["Male", "Female", "Prefer not to disclose"]
+			},
+			{
+				"id": "race-question",
+				"no_error": true,
+				"type": "dropdown",
+				"text": "Please indicate your race/ethnicity.",
+				"options": [
+					"American Indian or Alaska Native",
+					"Asian",
+					"Black or African American",
+					"Hispanic or Latino",
+					"Middle Eastern or North African",
+					"Native Hawaiian or Pacific Islander",
+					"Two or More Races",
+					"White",
+					"Prefer not to disclose"
+				]
+			},
+			{
+				"id": "disability-question",
+				"no_error": true,
+				"type": "dropdown",
+				"text": "Please indicate your disability status.",
+				"options": [
+					"I have had a disability or one in the past",
+					"I have never had a disability",
+					"Prefer not to disclose"
+				]
+			}
+		],
+		"interruptions": [
+			{
+				"trigger": "interact",
+				"type": "alert",
+				"alerts": [
+					"WAIT. Sorry.",
+					"We actually can't ask about this anymore.",
+					"To continue, please confirm you never saw this."
+				]
+			}
+		]
+	},
+	{
+		"title": "Work Authorization",
+		"id": "work-authorization",
+		"show_required": true,
+		"questions": [
+			{
+				"id": "work-auth-question",
+				"type": "dropdown",
+				"incorrect": "No",
+				"text": "Are you eligible to work in the United States?",
+				"options": ["Yes", "No"]
+			},
+			{
+				"id": "sponsorship-question",
+				"type": "dropdown",
+				"incorrect": "Yes",
+				"text": "Will you now, or in the future, require sponsorship for employment visa status (e.g. H-1B visa status)?",
+				"options": ["Yes", "No"]
+			}
+		],
+		"death": [
+			{
+				"id": "work-auth-question",
+				"status": "INELIGIBLE_WORK_AUTH"
+			},
+			{
+				"id": "sponsorship-question",
+				"status": "UNSPONSORED"
+			}
+		]
+	},
+	{
+		"title": "Resumé",
+		"id": "resume",
+		"show_required": true,
+		"questions": [
+			{
+				"id": "resume-question",
+				"type": "upload",
+				"text": "Please upload your resumé here.",
+				"done_text": "Your resumé has been uploaded."
+			},
+			{
+				"type": "text",
+				"text": "Thanks, we'll read this over later. In the meantime, please answer the following:",
+				"prerequisite_question": "resume-question"
+			},
+			{
+				"id": "graduated-college-question",
+				"type": "radio",
+				"text": "Have you graduated from an accredited 4 year college or university?",
+				"options": ["I have", "I have not"],
+				"prerequisite_question": "resume-question",
+				"correct": [true, false]
+			},
+			{
+				"id": "related-work-question",
+				"type": "radio",
+				"text": "Do you have 3+ years of work experience in a related field?",
+				"options": ["I do", "I do not"],
+				"prerequisite_question": "resume-question",
+				"correct": [true, false]
+			}
+		],
+		"death": [
+			{
+				"id": "graduated-college-question",
+				"status": "UNEDUCATED"
+			},
+			{
+				"id": "related-work-question",
+				"status": "NO_EXPERIENCE"
+			}
+		]
+	},
+	{
+		"title": "Notice",
+		"id": "speed-up-notice",
+		"show_required": false,
+		"texts": [
+			"Thank you for your interest in our role.",
+			"Unfortunately, there are currently **135** people in line to complete this application.",
+			"Please note that there will now be a reasonable **time limit** enforced for each question.",
+			"We appreciate your understanding!"
+		]
+	},
+	{
+		"title": "Verification",
+		"id": "captcha-2",
+		"show_required": true,
+		"timer": 15,
+		"questions": [
+			{
+				"id": "captcha-2-question-1",
+				"type": "captcha",
+				"text": "Your captcha verification has expired. Please verify that you are human to continue.",
+				"button_text": "I'm not a robot",
+				"pages": [
+					{
+						"prompt_text_before": "Select all squares with",
+						"prompt_text": "fire hydrants",
+						"prompt_text_after": "Click verify once there are none left.",
+						"image_id": "hydrant",
+						"dimension": 4,
+						"answers": [
+							[1, 1],
+							[3, 1],
+							[2, 2],
+							[2, 3]
+						]
+					}
+				]
+			}
+		]
+	},
+
+	{
+		"title": "Location Preference",
+		"id": "location-preference",
+		"timer": 15,
+		"show_required": true,
+		"texts": [
+			"Based on our current staffing needs, we are only offering one location for this role:",
+			"- Charlotte, North Carolina"
+		],
+		"questions": [
+			{
+				"id": "location-preference-1",
+				"type": "radio",
+				"text": "Please indicate your location preference.",
+				"options": ["Charlotte, North Carolina", "Other"],
+				"correct": [true, false]
+			},
+			{
+				"id": "location-preference-2",
+				"type": "radio",
+				"prerequisite_question": "location-preference-1",
+				"prerequisite_must_be_correct": true,
+				"text": "You're not just saying that, are you?",
+				"options": ["I am", "I am not"],
+				"correct": [false, true]
+			},
+			{
+				"id": "location-preference-3",
+				"type": "location",
+				"correct": [0.819, 0.5777],
+				"leeway": 0.02,
+				"prerequisite_question": "location-preference-2",
+				"prerequisite_must_be_correct": true,
+				"text": "To prove you’re not just saying that, please select the location of Charlotte, North Carolina on this map:"
+			}
+		],
+		"death": [
+			{
+				"id": "location-preference-1",
+				"status": "NOT_PAYING_RELOCATION"
+			},
+			{
+				"id": "location-preference-2",
+				"status": "INSINCERITY"
+			},
+			{
+				"id": "location-preference-3",
+				"status": "FAILED_BASIC_GEOGRAPHY"
+			}
+		]
+	},
+	{
+		"title": "Quick Check",
+		"id": "job-name",
+		"timer": 15,
+		"show_required": true,
+		"questions": [
+			{
+				"id": "job-name-question",
+				"type": "input",
+				"text": "What's the name of the job you're applying for?",
+				"correct": "Associate Engineer I"
+			}
+		],
+		"death": [
+			{
+				"id": "job-name-question",
+				"status": "ITS_THE_FIRST_PAGE"
+			}
+		]
+	},
+	{
+		"title": "Notice",
+		"id": "aptitude-start-notice",
+		"texts": [
+			"Thank you for your interest in our role.",
+			"Due to an unprecedented amount of applications, please note that we will be conducting additional **aptitude tests** to enhance each candidate profile.",
+			"We appreciate your understanding!"
+		]
+	},
+	{
+		"title": "Aptitude Test: Baseline",
+		"id": "radio-buttons-baseline",
+		"show_required": true,
+		"timer": 15,
+		"questions": [
+			{
+				"text": "Please select all options to continue.",
+				"id": "radio-buttons-baseline-question",
+				"type": "radio",
+				"allow_multiple": true,
+				"options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
+				"must_have_to_continue": "all"
+			}
+		]
+	},
+	{
+		"title": "Aptitude Test Con't",
+		"id": "radio-buttons-order",
+		"timer": 15,
+		"show_required": true,
+		"questions": [
+			{
+				"id": "radio-buttons-order-question",
+				"text": "Please select all options **in alphabetical order** to continue.",
+				"type": "radio-game",
+				"game_type": "order",
+				"ordered_options": [
+					"A",
+					"B",
+					"C",
+					"D",
+					"E",
+					"F",
+					"G",
+					"H",
+					"I",
+					"J"
+				],
+				"must_have_to_continue": "all"
+			}
+		]
+	},
+	{
+		"title": "Aptitude Test Con't",
+		"id": "radio-buttons-move",
+		"show_required": true,
+		"timer": 15,
+		"questions": [
+			{
+				"text": "Please select all options to continue.",
+				"id": "radio-buttons-move-question",
+				"type": "radio-game",
+				"game_type": "runaway",
+				"allow_multiple": true,
+				"options": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
+				"must_have_to_continue": "all"
+			}
+		]
+	},
+	{
+		"title": "Verification",
+		"id": "captcha-3",
+		"show_required": true,
+		"timer": 15,
+		"questions": [
+			{
+				"id": "captcha-3-question-1",
+				"type": "captcha",
+				"text": "Your captcha verification has expired. Please verify that you are human to continue.",
+				"button_text": "I'm not a robot",
+				"pages": [
+					{
+						"prompt_text_before": "A biker is coming! He’s in your path, but you can swerve to hit a puppy instead. Select who you’d",
+						"prompt_text": "run over",
+						"prompt_text_after": "Click verify once you've made your decision.",
+						"image_id": "bike",
+						"dimension": 4,
+						"answer_sets": [
+							[
+								[1, 1],
+								[1, 2]
+							],
+							[[2, 2]]
+						],
+						"post_text": "INTERESTING."
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Thank you for your interest",
+		"id": "temp-ending",
+		"texts": [
+			"You've reached the end of Job Application Simulator for now. Nice work!",
+			"Note that this does not guarantee a follow-up interview. We review all applications carefully and will be in touch if we think there may be a good fit.",
+			"For any feedback or questions, please reach out to Isabel."
+		],
+		"continue_override": "none",
+		"home_override": "Home"
+	}
+]

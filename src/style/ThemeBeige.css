@@ -1,0 +1,45 @@
+#banner.ThemeBeige {
+	background-color: #eeede4;
+	filter: drop-shadow(0 0.4vh 0.4vh rgba(0, 0, 0, 0.15));
+}
+
+#margin.ThemeBeige {
+	background-color: #f7f6f1;
+	border-right: 0.2vh solid #c3c0a7;
+}
+
+.heading.ThemeBeige {
+	border-bottom: 0.2vh solid #c3c0a7;
+}
+
+.button.ThemeBeige {
+	border-radius: 1.3vh;
+	font-weight: 550;
+	border: 0.2vh solid #c3c0a7;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.button.ThemeBeige:disabled {
+	background-color: #e0e0e0;
+}
+
+.button.ThemeBeige:hover:not(:disabled) {
+	background-color: #c3c0a732;
+}
+
+.button.ThemeBeige:active {
+	background-color: #c3c0a770;
+}
+
+.keyword {
+	border-radius: 1.3vh;
+	background-color: #eeecdd;
+}
+
+.continue-button.ThemeBeige {
+	background-color: #f9f5e1;
+}
+
+.continue-button.ThemeBeige:hover:not(:disabled) {
+	background-color: #c3c0a7;
+}

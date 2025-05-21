@@ -1,0 +1,23 @@
+{
+	"DEFAULT": {
+		"title": "Thank you for your interest",
+		"texts": [
+			"We appreciate your interest in our role **Associate Engineer I**.",
+			"We receive a lot of interest in our roles, and unfortunately, we’ve decided to not move on with your candidacy at this time.",
+			"We hope you’ll stay connected and wish you luck in future endeavors."
+		],
+		"continue_override": "none",
+		"home_override": "Home"
+	},
+	"TIMER": {
+		"title": "Thank you for your interest",
+		"texts": [
+			"We appreciate your interest in our role **Associate Engineer I**.",
+			"We receive a lot of interest in our roles, and unfortunately, we’ve decided to not move on with your candidacy at this time.",
+			"We hope you’ll stay connected and wish you luck in future endeavors."
+		],
+		"continue_override": "none",
+		"home_override": "Home",
+		"show_details": "INSUFFICIENT_TIME_MANAGEMENT"
+	}
+}

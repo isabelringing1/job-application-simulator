@@ -1,0 +1,111 @@
+[
+	{
+		"title": "Skills",
+		"id": "skills",
+		"show_required": true,
+		"texts": ["What skills do you have that are relevant to this role?"],
+		"questions": [
+			{
+				"id": "skills-question",
+				"type": "keyword",
+				"placeholder": "Start typing to search...",
+				"options": ["Artichoke", "Broccoli", "Chard"],
+				"checks": ["skills"]
+			}
+		]
+	},
+
+	{
+		"title": "Aptitude Test",
+		"id": "radio-buttons-click-2",
+		"show_required": true,
+		"timer": 15,
+		"texts": ["How many radio buttons can you click in 15 seconds?"],
+		"questions": [
+			{
+				"id": "radio-buttons-click-2-question",
+				"type": "radio",
+				"allow_multiple": true,
+				"text": "Please note that the minimum amount required for this job is currently **15**.",
+				"options": [
+					"I can click 1 radio button.",
+					"I can click 2 radio buttons.",
+					"I can click 3 radio buttons.",
+					"I can click 4 radio buttons.",
+					"I can click 5 radio buttons.",
+					"I can click 6 radio buttons.",
+					"I can click 7 radio buttons.",
+					"I can click 8 radio buttons.",
+					"I can click 9 radio buttons.",
+					"I can click 10 radio buttons.",
+					"I can click 11 radio buttons.",
+					"I can click 12 radio buttons.",
+					"I can click 13 radio buttons.",
+					"I can click 14 radio buttons.",
+					"I can click 15 radio buttons."
+				],
+				"must_have_to_continue": "all"
+			}
+		]
+	},
+	{
+		"title": "Work Flexibility",
+		"id": "work-saturdays",
+		"timer": 15,
+		"show_required": true,
+		"questions": [
+			{
+				"id": "work-saturdays-question",
+				"type": "radio",
+				"text": "Are you willing to work Saturdays?",
+				"options": ["Yes", "No"],
+				"correct": [true, false]
+			}
+		],
+		"death": [
+			{
+				"id": "work-saturdays-question",
+				"status": "WORK_FLEXIBILITY"
+			}
+		]
+	},
+	{
+		"title": "Reflex Assessment",
+		"id": "radio-game-2",
+		"timer": 15,
+		"show_required": true,
+		"questions": [
+			{
+				"id": "radio-game-question-2",
+				"text": "Please select all options to continue.",
+				"allow_multiple": true,
+				"type": "radio-game",
+				"rows": 10,
+				"columns": 1,
+				"game_type": "array",
+				"behavior": "up-down",
+				"must_have_to_continue": "all"
+			}
+		]
+	},
+	{
+		"title": "Reflex Assessment",
+		"id": "radio-game-1",
+		"timer": 15,
+		"show_required": true,
+		"questions": [
+			{
+				"id": "radio-game-question-1",
+				"text": "Please select all options to continue.",
+				"allow_multiple": true,
+				"type": "radio-game",
+				"rows": 10,
+				"columns": 1,
+				"game_type": "array",
+				"behavior": "side-to-side",
+				"must_have_to_continue": "all"
+			}
+		]
+	},
+]
+
