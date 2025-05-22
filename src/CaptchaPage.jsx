@@ -16,7 +16,10 @@ function CaptchaPage(props) {
 
 	const [imageCoords, setImageCoords] = useState([]);
 	const [imageStates, setImageStates] = useState([]);
+	const [imageOrder, setImageOrder] = useState([]);
 	const [numSelected, setNumSelected] = useState(0);
+
+	const [showingError, setShowingError] = useState(false);
 
 	useEffect(() => {
 		if (!page) {
@@ -24,16 +27,22 @@ function CaptchaPage(props) {
 		}
 		var newCoords = [];
 		var newStates = [];
+		var newOrder = [];
 		for (var i = 0; i < page.dimension; i++) {
 			var newRow = [];
 			for (var j = 0; j < page.dimension; j++) {
 				newCoords.push([j, i]);
 				newRow.push(false);
+				newOrder.push(i * page.dimension + j);
 			}
 			newStates.push(newRow);
 		}
+		if (page.scramble) {
+			newOrder.sort(() => Math.random() - 0.5); //shuffle
+		}
 		setImageCoords(newCoords);
 		setImageStates(newStates);
+		setImageOrder(newOrder);
 	}, [page]);
 
 	const onImagePressed = (e) => {
@@ -52,11 +61,37 @@ function CaptchaPage(props) {
 	};
 
 	const onVerifyPressed = () => {
+		if (showingError) {
+			return;
+		}
 		if (isCorrect()) {
 			goToNextCaptchaPage();
 		} else {
-			console.log("wrong");
+			showIncorrect();
 		}
+	};
+
+	const showIncorrect = () => {
+		if (showingError) {
+			return;
+		}
+		setShowingError(true);
+		setTimeout(() => {
+			setShowingError(false);
+		}, 1000);
+	};
+
+	const getButtonText = () => {
+		if (showProcessing) {
+			if (page.post_text) {
+				return page.post_text;
+			}
+			return "• • •";
+		}
+		if (showingError) {
+			return "WRONG";
+		}
+		return "VERIFY";
 	};
 
 	const isCorrect = () => {
@@ -133,8 +168,9 @@ function CaptchaPage(props) {
 					</div>
 				)}
 				<div className={gridC} id={"captcha-images-grid-" + id}>
-					{imageCoords.map((coord, i) => {
-						var selected = imageStates[coord[0]][coord[1]];
+					{imageOrder.map((index, i) => {
+						var mapCoord = imageCoords[index];
+						var selected = imageStates[mapCoord[0]][mapCoord[1]];
 						var c = "captcha-image";
 						if (selected) {
 							c += " image-selected";
@@ -144,14 +180,17 @@ function CaptchaPage(props) {
 								key={"captcha-image-" + page.image_id + "-" + i}
 							>
 								<img
-									src={getPathFromCoords(coord[0], coord[1])}
+									src={getPathFromCoords(
+										mapCoord[0],
+										mapCoord[1],
+									)}
 									className={c}
 									onClick={onImagePressed}
 									id={
 										"captcha-image-" +
-										coord[0] +
+										mapCoord[0] +
 										"-" +
-										coord[1]
+										mapCoord[1]
 									}
 								/>
 								{selected && (
@@ -164,13 +203,15 @@ function CaptchaPage(props) {
 			</div>
 			<div className="captcha-footer">
 				<button
-					className="captcha-verify-button"
+					className={
+						showingError
+							? "captcha-verify-button error-button"
+							: "captcha-verify-button"
+					}
 					onClick={onVerifyPressed}
 					disabled={isCaptchaButtonDisabled()}
 				>
-					{page.post_text && showProcessing
-						? page.post_text
-						: "VERIFY"}
+					{getButtonText()}
 				</button>
 			</div>
 		</div>

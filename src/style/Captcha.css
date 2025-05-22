@@ -208,3 +208,27 @@ input[type="checkbox"] {
 		transform: scale(1);
 	}
 }
+
+.error-button {
+	background-color: rgb(255, 61, 61);
+	animation: shake 0.15s ease-in-out 2;
+	-webkit-animation: shake 0.15s ease-in-out 2;
+}
+
+@keyframes shake {
+	0% {
+		transform: translate(0, 0);
+	}
+	25% {
+		transform: translate(-0.5vh, 0);
+	}
+	50% {
+		transform: translate(0, 0);
+	}
+	75% {
+		transform: translate(0.5vh, 0);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}

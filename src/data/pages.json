@@ -13,7 +13,7 @@
 			"Our mission is to create the world’s most innovative, dependable, and ethical software.",
 			"***",
 			"**About the role**",
-			"We’re looking for applications who:",
+			"We’re looking for candidates who:",
 			"- Have a B.S. in Computer Science or related field",
 			"- 3+ years of full stack development experience",
 			"- An eagerness to thrive in a fast-paced environment",
@@ -240,6 +240,7 @@
 						"prompt_text": "fire hydrants",
 						"prompt_text_after": "Click verify once there are none left.",
 						"image_id": "hydrant",
+						"scramble": true,
 						"dimension": 4,
 						"answers": [
 							[1, 1],
