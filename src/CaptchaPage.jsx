@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import check from "/images/blue_check.png";
 
-const CAPTCHA_ROOT = "/images/captchas/";
+const CAPTCHA_ROOT = "./images/captchas/";
 
 function CaptchaPage(props) {
 	const {
