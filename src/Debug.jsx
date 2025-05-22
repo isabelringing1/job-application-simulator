@@ -13,16 +13,16 @@ function Debug(props) {
 		pageIndex,
 	} = props;
 
-	const devMode = false;
+	const devMode = true;
 
 	useEffect(() => {
 		document.addEventListener("keydown", (event) => {
-			if (event.code === "KeyD") {
+			if (event.code === "Escape") {
 				toggleShowDebug();
 			}
 		});
 		return document.removeEventListener("keydown", (event) => {
-			if (event.code === "KeyD") {
+			if (event.code === "Escape") {
 				toggleShowDebug();
 			}
 		});

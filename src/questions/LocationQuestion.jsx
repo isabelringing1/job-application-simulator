@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 
 import Markdown from "react-markdown";
 
-import usMap from "/public/images/us-map.png";
-import checkmarkImg from "/public/images/checkmark.png";
+import usMap from "/images/us-map.png";
+import checkmarkImg from "/images/checkmark.png";
 
 import { CheckDeathStatus } from "../managers/VerificationManager.js";
 

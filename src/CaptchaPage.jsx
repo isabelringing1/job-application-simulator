@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import check from "/public/images/blue_check.png";
+import check from "/images/blue_check.png";
 
 const CAPTCHA_ROOT = "/images/captchas/";
 
