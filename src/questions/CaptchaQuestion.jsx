@@ -71,8 +71,8 @@ function CaptchaQuestion(props) {
 	};
 
 	return (
-		<div className="captcha-question" id={id}>
-			<div className="captcha-question-text text">
+		<div className="captcha-question question" id={id}>
+			<div className="question-text text">
 				<Markdown>{question.text}</Markdown>{" "}
 				<span className="red asterix">*</span>
 			</div>

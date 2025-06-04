@@ -37,6 +37,13 @@ function CaptchaPage(props) {
 			}
 			newStates.push(newRow);
 		}
+		if (page.preselected) {
+			for (var i = 0; i < page.preselected.length; i++) {
+				var coord = page.preselected[i];
+				newStates[coord[0]][coord[1]] = true;
+			}
+			setNumSelected(page.preselected.length);
+		}
 		if (page.scramble) {
 			newOrder.sort(() => Math.random() - 0.5); //shuffle
 		}

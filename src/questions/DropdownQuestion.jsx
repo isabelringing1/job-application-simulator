@@ -11,7 +11,8 @@ function DropdownQuestion(props) {
 	const [inlineError, setInlineError] = useState(null);
 	const [attempted, setAttempted] = useState(false);
 
-	var questionClassName = "dropdown-question " + (show ? "show" : "hide");
+	var questionClassName =
+		"dropdown-question question " + (show ? "show" : "hide");
 
 	useEffect(() => {
 		setAnswer(pageDict[id] ?? "");
@@ -40,7 +41,7 @@ function DropdownQuestion(props) {
 
 	return (
 		<div className={questionClassName} id={id}>
-			<div className="dropdown-question-text text">
+			<div className="question-text text">
 				<Markdown>{question.text}</Markdown>{" "}
 				<span className="red asterix">*</span>
 			</div>

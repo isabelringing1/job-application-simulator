@@ -76,7 +76,7 @@ function KeywordQuestion(props) {
 	};
 
 	return (
-		<div className="keyword-question">
+		<div className="keyword-question question">
 			<input
 				autoComplete="off"
 				role="combobox"

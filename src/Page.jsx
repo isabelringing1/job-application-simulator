@@ -215,12 +215,6 @@ function Page(props) {
 				{page.title && <div className="title text">{page.title}</div>}
 			</div>
 			<div className="body">
-				{page.show_required && (
-					<div className="required-text text">
-						<span className="red asterix">*</span> Indicates a
-						required field
-					</div>
-				)}
 				{page.texts &&
 					page.texts.map((t, i) => {
 						return (

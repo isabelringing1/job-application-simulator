@@ -20,7 +20,8 @@ function RadioGameQuestion(props) {
 	const [inlineError, setInlineError] = useState(null);
 	const [attempted, setAttempted] = useState(false);
 
-	var questionClassName = "radio-game-question " + (show ? "show" : "hide");
+	var questionClassName =
+		"radio-game-question question " + (show ? "show" : "hide");
 
 	useEffect(() => {
 		if (attempted) {
@@ -75,7 +76,7 @@ function RadioGameQuestion(props) {
 
 	return (
 		<div className={questionClassName} id={id}>
-			<div className="radio-question-text text">
+			<div className="question-text text">
 				<Markdown>{question.text}</Markdown>{" "}
 				<span className="red asterix">*</span>
 			</div>

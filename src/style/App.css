@@ -54,9 +54,18 @@ p {
 	margin-left: 3vh;
 	height: 3vh;
 	font-size: 2vh;
-	margin-bottom: 1.5vh;
-	margin-top: 1.5vh;
+	margin-bottom: 0.5vh;
+	margin-top: 0.5vh;
 	width: 60%;
+}
+
+.question-text {
+	padding-bottom: 0 !important;
+	font-weight: 600;
+}
+
+.question {
+	padding-bottom: 2vh;
 }
 
 .heading {
@@ -288,7 +297,7 @@ hr {
 	display: flex;
 	position: absolute;
 	transition-duration: 400ms;
-    transition-timing-function: cubic-bezier(0.34, 0.59, 0.25, 1);
+	transition-timing-function: cubic-bezier(0.34, 0.59, 0.25, 1);
 }
 
 .hide {
@@ -363,9 +372,9 @@ hr {
 	justify-content: start;
 }
 
-.runaway-radio-div{
+.runaway-radio-div {
 	width: 3vh;
-    padding-bottom: 0vh;
+	padding-bottom: 0vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -376,13 +385,13 @@ hr {
 	height: 1.5vh;
 }
 
-.answer-checkmark{
+.answer-checkmark {
 	position: absolute;
 	width: 2vh;
 	height: 2vh;
 }
 
-.map-div{
+.map-div {
 	height: 40vh;
 	position: relative;
 }

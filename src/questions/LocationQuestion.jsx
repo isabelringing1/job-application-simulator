@@ -25,7 +25,8 @@ function LocationQuestion(props) {
 	const [attempted, setAttempted] = useState(false);
 	const [checkmarkMargin, setCheckmarkMargin] = useState([0, 0]);
 
-	var questionClassName = "location-question " + (show ? "show" : "hide");
+	var questionClassName =
+		"location-question question " + (show ? "show" : "hide");
 
 	useEffect(() => {
 		setInput(pageDict[id] ?? "");
@@ -83,7 +84,7 @@ function LocationQuestion(props) {
 
 	return (
 		<div className={questionClassName} id={id}>
-			<div className="location-question-text text">
+			<div className="question-text text">
 				<Markdown>{question.text}</Markdown>{" "}
 				<span className="red asterix">*</span>
 			</div>

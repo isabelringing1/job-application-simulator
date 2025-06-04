@@ -24,12 +24,11 @@
 	{
 		"title": "Verification",
 		"id": "captcha-1",
-		"show_required": true,
+		"texts": ["Please verify that you are human to continue."],
 		"questions": [
 			{
 				"id": "captcha-1-question-1",
 				"type": "captcha",
-				"text": "Please verify that you are human to continue.",
 				"button_text": "I'm not a robot",
 				"pages": [
 					{
@@ -217,22 +216,22 @@
 		"id": "speed-up-notice",
 		"show_required": false,
 		"texts": [
-			"Thank you for your interest in our role.",
-			"Unfortunately, there are currently **135** people in line to complete this application.",
-			"Please note that there will now be a reasonable **time limit** enforced for each question.",
+			"There are currently **135** people in line to complete this application.",
+			"Please note that going forward there will be a reasonable **time limit** enforced for each question.",
 			"We appreciate your understanding!"
 		]
 	},
 	{
 		"title": "Verification",
 		"id": "captcha-2",
-		"show_required": true,
+		"texts": [
+			"Your captcha verification has expired. Please verify that you are human to continue."
+		],
 		"timer": 15,
 		"questions": [
 			{
 				"id": "captcha-2-question-1",
 				"type": "captcha",
-				"text": "Your captcha verification has expired. Please verify that you are human to continue.",
 				"button_text": "I'm not a robot",
 				"pages": [
 					{
@@ -329,7 +328,6 @@
 		"title": "Notice",
 		"id": "aptitude-start-notice",
 		"texts": [
-			"Thank you for your interest in our role.",
 			"Due to an unprecedented amount of applications, please note that we will be conducting additional **aptitude tests** to enhance each candidate profile.",
 			"We appreciate your understanding!"
 		]
@@ -397,13 +395,14 @@
 	{
 		"title": "Verification",
 		"id": "captcha-3",
-		"show_required": true,
+		"texts": [
+			"Your captcha verification has expired. Please verify that you are human to continue."
+		],
 		"timer": 15,
 		"questions": [
 			{
 				"id": "captcha-3-question-1",
 				"type": "captcha",
-				"text": "Your captcha verification has expired. Please verify that you are human to continue.",
 				"button_text": "I'm not a robot",
 				"pages": [
 					{
@@ -418,6 +417,10 @@
 								[1, 2]
 							],
 							[[2, 2]]
+						],
+						"preselected": [
+							[1, 1],
+							[1, 2]
 						],
 						"post_text": "INTERESTING."
 					}

@@ -31,8 +31,8 @@ function UploadQuestion(props) {
 	};
 
 	return (
-		<div className="upload-question" id={id}>
-			<div className="upload-question-text text">
+		<div className="upload-question question" id={id}>
+			<div className="question-text text">
 				<Markdown>
 					{uploaded && question.done_text
 						? question.done_text

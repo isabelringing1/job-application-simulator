@@ -14,7 +14,8 @@ function InputQuestion(props) {
 	const [inlineError, setInlineError] = useState(null);
 	const [attempted, setAttempted] = useState(false);
 
-	var questionClassName = "input-question " + (show ? "show" : "hide");
+	var questionClassName =
+		"input-question question " + (show ? "show" : "hide");
 
 	useEffect(() => {
 		setInput(pageDict[id] ?? "");
@@ -46,7 +47,7 @@ function InputQuestion(props) {
 
 	return (
 		<div className={questionClassName} id={id}>
-			<div className="input-question-text text">
+			<div className="question-text text">
 				<Markdown>{question.text}</Markdown>{" "}
 				<span className="red asterix">*</span>
 			</div>
