@@ -1,5 +1,6 @@
 {
 	"DEFAULT": {
+		"id": "default-death",
 		"title": "Thank you for your interest",
 		"texts": [
 			"We appreciate your interest in our role **Associate Engineer I**.",
@@ -10,6 +11,7 @@
 		"home_override": "Home"
 	},
 	"TIMER": {
+		"id": "timer-death",
 		"title": "Thank you for your interest",
 		"texts": [
 			"We appreciate your interest in our role **Associate Engineer I**.",

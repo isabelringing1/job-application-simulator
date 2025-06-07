@@ -10,7 +10,7 @@ import pageData from "./data/pages.json";
 import deathData from "./data/death.json";
 
 import "./style/App.css";
-import "./style/ThemeBeige.css";
+import "./style/ThemeWhite.css";
 
 function App() {
 	const [showDebug, setShowDebug] = useState(false);
@@ -60,14 +60,25 @@ function App() {
 	};
 
 	const showDeath = (reason) => {
-		setPageIndex(-1);
+		var deathPage = null;
 		if (deathPages[reason]) {
-			setCurrentPage(deathPages[reason]);
+			deathPage = deathPages[reason];
 		} else {
-			var defaultDeathPage = deathPages["DEFAULT"];
-			defaultDeathPage.show_details = reason;
-			setCurrentPage(defaultDeathPage);
+			deathPage = deathPages["DEFAULT"];
+			deathPage.show_details = reason;
 		}
+
+		setPages([
+			...pages.slice(0, pageIndex + 1),
+			deathPage,
+			...pages.slice(pageIndex + 1),
+		]);
+		nextPage();
+	};
+
+	const goHome = () => {
+		setPageIndex(0);
+		setPages(pageData);
 	};
 
 	const onTimerEnd = () => {
@@ -100,20 +111,33 @@ function App() {
 				</div>
 				<div id="page-container" className={themeContext}>
 					<div id="margin" className={themeContext}></div>
-					<div id="main-pages" className={themeContext}>
-						{currentPage && (
-							<Page
-								key={pageIndex}
-								page={currentPage}
-								pageIndex={pageIndex}
-								nextPage={nextPage}
-								prevPage={prevPage}
-								inputDict={inputDict}
-								setInputDict={setInputDict}
-								showDeath={showDeath}
-								setPageIndex={setPageIndex}
-							/>
-						)}
+					<div
+						id="main-pages"
+						className={themeContext}
+						style={{
+							marginTop: "-" + pageIndex * 100 + "vh",
+						}}
+					>
+						{pages.map((page, i) => {
+							if (Math.abs(pageIndex - i) > 1) {
+								return (
+									<div key={i} className="empty-page"></div>
+								);
+							}
+							return (
+								<Page
+									key={i}
+									page={page}
+									pageIndex={i}
+									nextPage={nextPage}
+									prevPage={prevPage}
+									inputDict={inputDict}
+									setInputDict={setInputDict}
+									showDeath={showDeath}
+									goHome={goHome}
+								/>
+							);
+						})}
 					</div>
 				</div>
 			</div>

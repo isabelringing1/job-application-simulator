@@ -107,5 +107,60 @@
 			}
 		]
 	},
+	{
+		"title": "Voluntary Self-Identification",
+		"id": "self-id",
+		"show_required": true,
+		"texts": [
+			"We'd like to invite you to share more about yourself. This information will not impact on your application or the hiring process."
+		],
+		"questions": [
+			{
+				"id": "gender-question",
+				"no_error": true,
+				"type": "dropdown",
+				"text": "Please indicate your gender.",
+				"options": ["Male", "Female", "Prefer not to disclose"]
+			},
+			{
+				"id": "race-question",
+				"no_error": true,
+				"type": "dropdown",
+				"text": "Please indicate your race/ethnicity.",
+				"options": [
+					"American Indian or Alaska Native",
+					"Asian",
+					"Black or African American",
+					"Hispanic or Latino",
+					"Middle Eastern or North African",
+					"Native Hawaiian or Pacific Islander",
+					"Two or More Races",
+					"White",
+					"Prefer not to disclose"
+				]
+			},
+			{
+				"id": "disability-question",
+				"no_error": true,
+				"type": "dropdown",
+				"text": "Please indicate your disability status.",
+				"options": [
+					"I have had a disability or one in the past",
+					"I have never had a disability",
+					"Prefer not to disclose"
+				]
+			}
+		],
+		"interruptions": [
+			{
+				"trigger": "interact",
+				"type": "alert",
+				"alerts": [
+					"WAIT. Sorry.",
+					"We actually can't ask about this anymore.",
+					"To continue, please confirm you never saw this."
+				]
+			}
+		]
+	}
 ]
-

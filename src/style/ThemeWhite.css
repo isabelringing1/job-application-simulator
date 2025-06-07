@@ -1,0 +1,98 @@
+:root {
+	--theme-blue: #3aadff;
+	--theme-blue-darker: #2b93dd;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+}
+
+#margin.ThemeWhite {
+	border-right: 0.3vh solid var(--theme-blue);
+}
+
+.button.ThemeWhite {
+	border-radius: 2.4vh;
+	font-weight: 550;
+	border: none;
+	background-color: var(--theme-blue);
+	color: white;
+	height: 5.8vh;
+	font-family: "Open Sans", sans-serif;
+}
+
+.button.ThemeWhite:disabled {
+	background-color: #e0e0e0;
+	color: gray;
+}
+
+.button.ThemeWhite:hover:not(:disabled) {
+	background-color: var(--theme-blue-darker);
+}
+
+.button.ThemeWhite:active {
+	background-color: var(--theme-blue-darker);
+}
+
+.heading-bottom-border.ThemeWhite {
+	height: 0;
+	border-bottom: 0.2vh dashed var(--theme-blue);
+	width: 50%;
+	margin-left: 6vh;
+}
+
+.progress-circle.ThemeWhite {
+	width: 100%;
+	height: 100%;
+	border: 0.2vh solid var(--theme-blue);
+	border-radius: 10vh;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.progress-circle-container.ThemeWhite {
+	position: absolute;
+	width: 6vh;
+	height: 6vh;
+	border: 1vh solid white;
+	border-radius: 10vh;
+	margin-left: -4vh;
+	margin-top: -9.5vh;
+}
+
+.progress-circle-inner.ThemeWhite {
+	width: 80%;
+	aspect-ratio: 1 / 1;
+	border-radius: 10vh;
+	background-color: var(--theme-blue);
+	opacity: 0.8;
+
+	transition: opacity 0.2s ease-in-out;
+}
+
+.in-progress-circle.ThemeWhite {
+	opacity: 0.4;
+
+	animation: breathe 3s cubic-bezier(0.45, 0, 0.55, 1);
+	animation-iteration-count: infinite;
+	-moz-animation: breathe 3s cubic-bezier(0.45, 0, 0.55, 1);
+	-moz-animation-iteration-count: infinite;
+	-webkit-animation: breathe 3s cubic-bezier(0.45, 0, 0.55, 1);
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes breathe {
+	0% {
+		width: 50%;
+	}
+
+	50% {
+		width: 75%;
+	}
+
+	100% {
+		width: 50%;
+	}
+}

@@ -1,5 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 
+import ProgressCircle from "./ProgressCircle.jsx";
+
 import InputQuestion from "./questions/InputQuestion.jsx";
 import DropdownQuestion from "./questions/DropdownQuestion.jsx";
 import UploadQuestion from "./questions/UploadQuestion.jsx";
@@ -27,7 +29,7 @@ function Page(props) {
 		inputDict,
 		setInputDict,
 		showDeath,
-		setPageIndex,
+		goHome,
 	} = props;
 
 	const [idToQuestionsDict, setIdToQuestionsDict] = useState({});
@@ -168,10 +170,6 @@ function Page(props) {
 		prevPage();
 	};
 
-	const onHomeClicked = () => {
-		setPageIndex(0);
-	};
-
 	const showBackButton = () => {
 		return false;
 		//return pageIndex > 0;
@@ -213,6 +211,10 @@ function Page(props) {
 		<div className={"page " + themeContext.theme} id={pageId}>
 			<div className={"heading " + themeContext.theme}>
 				{page.title && <div className="title text">{page.title}</div>}
+				<div
+					className={"heading-bottom-border " + themeContext.theme}
+				></div>
+				<ProgressCircle inProgress={isContinueDisabled} />
 			</div>
 			<div className="body">
 				{page.texts &&
@@ -273,7 +275,7 @@ function Page(props) {
 							className={
 								"home-button button " + themeContext.theme
 							}
-							onClick={onHomeClicked}
+							onClick={goHome}
 						>
 							{page.home_override}
 						</button>

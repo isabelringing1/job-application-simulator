@@ -1,52 +1,27 @@
 [
 	{
-		"title": "Job Application Simulator",
+		"title": "Welcome!",
 		"id": "title",
-		"continue_override": "I want a job"
+		"texts": [
+			"You've reached the job application portal. Press START to begin."
+		],
+		"continue_override": "START"
 	},
 	{
-		"title": "Associate Engineer I",
+		"title": "About the Role",
 		"id": "about-role",
 		"show_required": false,
 		"texts": [
-			"**About us**",
-			"Our mission is to create the world’s most innovative, dependable, and ethical software.",
-			"***",
-			"**About the role**",
+			"This application is for **Associate Engineer I**.",
+			"",
 			"We’re looking for candidates who:",
 			"- Have a B.S. in Computer Science or related field",
 			"- 3+ years of full stack development experience",
 			"- An eagerness to thrive in a fast-paced environment",
-			"If that sounds like you, please apply!"
+			"",
+			"If this sounds like you, then apply!"
 		],
 		"continue_override": "Apply"
-	},
-	{
-		"title": "Verification",
-		"id": "captcha-1",
-		"texts": ["Please verify that you are human to continue."],
-		"questions": [
-			{
-				"id": "captcha-1-question-1",
-				"type": "captcha",
-				"button_text": "I'm not a robot",
-				"pages": [
-					{
-						"prompt_text_before": "Select all squares with",
-						"prompt_text": "traffic cones",
-						"prompt_text_after": "Click verify once there are none left.",
-						"image_id": "cone",
-						"dimension": 3,
-						"answers": [
-							[1, 0],
-							[2, 0],
-							[0, 1],
-							[0, 2]
-						]
-					}
-				]
-			}
-		]
 	},
 	{
 		"title": "Basic Information",
@@ -56,7 +31,7 @@
 			{
 				"id": "name-question",
 				"type": "input",
-				"text": "Name",
+				"text": "NAME",
 				"checks": ["text-only"]
 			}
 		]
@@ -69,73 +44,29 @@
 			{
 				"id": "email-question",
 				"type": "input",
-				"text": "Email",
+				"text": "EMAIL",
 				"checks": ["email"]
 			},
 			{
 				"id": "phone-question",
 				"type": "input",
-				"text": "Phone",
+				"text": "PHONE",
 				"checks": ["phone"]
 			}
 		]
 	},
 	{
-		"title": "Voluntary Self-Identification",
-		"id": "self-id",
-		"show_required": true,
+		"title": "About Us",
+		"id": "about-us",
+		"show_required": false,
 		"texts": [
-			"We'd like to invite you to share more about yourself. This information will not impact on your application or the hiring process."
+			"A little about Syborg-- because we want you to get to know us as much as we’re getting to know you.",
+			"Our mission is to create the world’s most **innovative**, **dependable**, and **ethical** software. We believe team is family, so we take recruiting seriously here.",
+			"That’s why we’re leveraging our proprietary **artificial intelligence** algorithm to supercharge our application process. Moving forward, you'll start seeing our **AI Agent** around the page. He's here to help!"
 		],
-		"questions": [
-			{
-				"id": "gender-question",
-				"no_error": true,
-				"type": "dropdown",
-				"text": "Please indicate your gender.",
-				"options": ["Male", "Female", "Prefer not to disclose"]
-			},
-			{
-				"id": "race-question",
-				"no_error": true,
-				"type": "dropdown",
-				"text": "Please indicate your race/ethnicity.",
-				"options": [
-					"American Indian or Alaska Native",
-					"Asian",
-					"Black or African American",
-					"Hispanic or Latino",
-					"Middle Eastern or North African",
-					"Native Hawaiian or Pacific Islander",
-					"Two or More Races",
-					"White",
-					"Prefer not to disclose"
-				]
-			},
-			{
-				"id": "disability-question",
-				"no_error": true,
-				"type": "dropdown",
-				"text": "Please indicate your disability status.",
-				"options": [
-					"I have had a disability or one in the past",
-					"I have never had a disability",
-					"Prefer not to disclose"
-				]
-			}
-		],
-		"interruptions": [
-			{
-				"trigger": "interact",
-				"type": "alert",
-				"alerts": [
-					"WAIT. Sorry.",
-					"We actually can't ask about this anymore.",
-					"To continue, please confirm you never saw this."
-				]
-			}
-		]
+		"continue_override": "Sounds Good"
 	},
+
 	{
 		"title": "Work Authorization",
 		"id": "work-authorization",
@@ -212,47 +143,15 @@
 		]
 	},
 	{
-		"title": "Notice",
+		"title": "We’re experiencing unprecedented interest in our roles",
 		"id": "speed-up-notice",
 		"show_required": false,
 		"texts": [
 			"There are currently **135** people in line to complete this application.",
-			"Please note that going forward there will be a reasonable **time limit** enforced for each question.",
+			"After careful analysis by our algorithm, we’ve determined that the best course of action going forward is to enforce a reasonable **time limit** for each question. ",
 			"We appreciate your understanding!"
 		]
 	},
-	{
-		"title": "Verification",
-		"id": "captcha-2",
-		"texts": [
-			"Your captcha verification has expired. Please verify that you are human to continue."
-		],
-		"timer": 15,
-		"questions": [
-			{
-				"id": "captcha-2-question-1",
-				"type": "captcha",
-				"button_text": "I'm not a robot",
-				"pages": [
-					{
-						"prompt_text_before": "Select all squares with",
-						"prompt_text": "fire hydrants",
-						"prompt_text_after": "Click verify once there are none left.",
-						"image_id": "hydrant",
-						"scramble": true,
-						"dimension": 4,
-						"answers": [
-							[1, 1],
-							[3, 1],
-							[2, 2],
-							[2, 3]
-						]
-					}
-				]
-			}
-		]
-	},
-
 	{
 		"title": "Location Preference",
 		"id": "location-preference",
@@ -325,11 +224,40 @@
 		]
 	},
 	{
-		"title": "Notice",
+		"title": "We're looking for that X-factor",
 		"id": "aptitude-start-notice",
 		"texts": [
-			"Due to an unprecedented amount of applications, please note that we will be conducting additional **aptitude tests** to enhance each candidate profile.",
-			"We appreciate your understanding!"
+			"We know there’s a lot of talent out there, and we also know that answering simple questions won’t tell the whole story.",
+			"That’s why we're rolling out specialized **aptitude tests** to reveal strengths in candidates that may be hard to see from the traditional application process.",
+			"Our algorithms have developed these tests to be **holistic** and **fair**, so no need to worry!"
+		],
+		"continue_override": "Start Tests"
+	},
+	{
+		"title": "Verification",
+		"id": "captcha-1",
+		"texts": ["Before we begin, please verify that you are human."],
+		"questions": [
+			{
+				"id": "captcha-1-question-1",
+				"type": "captcha",
+				"button_text": "I'm not a robot",
+				"pages": [
+					{
+						"prompt_text_before": "Select all squares with",
+						"prompt_text": "traffic cones",
+						"prompt_text_after": "Click verify once there are none left.",
+						"image_id": "cone",
+						"dimension": 3,
+						"answers": [
+							[1, 0],
+							[2, 0],
+							[0, 1],
+							[0, 2]
+						]
+					}
+				]
+			}
 		]
 	},
 	{
@@ -423,6 +351,37 @@
 							[1, 2]
 						],
 						"post_text": "INTERESTING."
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Verification",
+		"id": "captcha-2",
+		"texts": [
+			"Your captcha verification has expired. Please verify that you are human to continue."
+		],
+		"timer": 15,
+		"questions": [
+			{
+				"id": "captcha-2-question-1",
+				"type": "captcha",
+				"button_text": "I'm not a robot",
+				"pages": [
+					{
+						"prompt_text_before": "Select all squares with",
+						"prompt_text": "fire hydrants",
+						"prompt_text_after": "Click verify once there are none left.",
+						"image_id": "hydrant",
+						"scramble": true,
+						"dimension": 4,
+						"answers": [
+							[1, 1],
+							[3, 1],
+							[2, 2],
+							[2, 3]
+						]
 					}
 				]
 			}

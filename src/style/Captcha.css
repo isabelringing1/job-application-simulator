@@ -1,6 +1,6 @@
 .captcha-button {
 	margin-top: 3vh;
-	margin-left: 3vh;
+	margin-left: 6vh;
 	margin-bottom: 3vh;
 	padding-left: 1vh;
 	text-align: left;
@@ -44,6 +44,7 @@ input[type="checkbox"] {
 	border-radius: 0.5vh;
 	display: flex;
 	flex-direction: column;
+	font-family: Helvetica, sans-serif;
 }
 
 .captcha-header {
